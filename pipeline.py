@@ -3,6 +3,7 @@
 import sqlite3
 import os
 import pandas as pd
+import numpy as np
 import re
 
 #get working directory
@@ -27,6 +28,15 @@ rctDf = pd.read_sql_query("SELECT * FROM RANDOMIZED_CONTROLLED_TRIAL", DB)
 #close connection to database
 DB.close()
 
+#subset columns of interest and rename columns
+rctDf=rctDf[['id','prediction']]
+rctDf.rename(columns={ 0: 'PMID', 1: 'RCT Prediction'})
+print(rctDf)
+
+#combine old taggers and predictions from database
+rct_frames=[rctTags, rctDf]
+rctAll=pd.concat(rct_frames)
+
 #read starting PubMed IDs from search
 startIds=pd.read_csv('OCR_RCT_START_IDS.txt', header=None)
 #name columns year and pubmed ID
@@ -44,6 +54,7 @@ absRet.rename(columns={0: 'Year', 1: 'PMID'}, inplace=True)
 #remove expressions from pubmed IDs
 absRet['PMID'] = absRet['PMID'].str.split(r'\D').str.get(1)
 print(absRet)
+
 
 #match ids to database and csv files
 
