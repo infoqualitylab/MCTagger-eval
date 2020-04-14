@@ -17,11 +17,13 @@ DB = sqlite3.connect(pathDB)
 #path to old taggers
 pathOld='/Users/brandismith/Documents/Tagger Data/all.csv'
 
-#make variable for old taggers
+#retrieve old taggers
 rctTags=pd.read_table(pathOld)
 
-#select RCT Tagger Table
-rctDB = DB.execute("SELECT * FROM RANDOMIZED_CONTROLLED_TRIAL")
+#select RCT Tagger Table and return as pandas dataframe
+#REF: https://datacarpentry.org/python-ecology-lesson/09-working-with-sql/index.html
+rctDf = pd.read_sql_query("SELECT * FROM RANDOMIZED_CONTROLLED_TRIAL", DB)
+
 #close connection to database
 DB.close()
 
@@ -44,7 +46,6 @@ absRet['PMID'] = absRet['PMID'].str.split(r'\D').str.get(1)
 print(absRet)
 
 #match ids to database and csv files
-#REF: https://datatofish.com/sql-to-pandas-dataframe/
 
 
 
