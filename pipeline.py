@@ -71,7 +71,7 @@ len(pred_abs)#253
 pred_abs.to_csv (r'abstract_predictions.csv', index = False, header=True)
 
 #which PMIDs missing between abstracts retrieved list and prediction list?
-
+pred_abs['Year Missing']=np.where(absRet.Year != pred_abs.Year, 'True',"False")
 #print predictions for full text retrieved
 
 #calculate works savings from starting IDs, abstracts retreived to full text screened
