@@ -63,12 +63,14 @@ print(absRet)
 len(absRet.index)#325
 
 #extract predictions for abstracts retrieved
-
 pred_abs = pd.merge(absRet, rctAll, on=['PMID'], how='inner')
 print(pred_abs)
 len(pred_abs)#253
 
+#which PMIDs missing between abstracts retrieved list and prediction list?
+
 #print predictions for abstracts retrieved
+pred_abs.to_csv (r'abstract_predictions.csv', index = False, header=True)
 
 #print predictions for full text retrieved
 
