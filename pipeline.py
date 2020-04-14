@@ -30,12 +30,13 @@ DB.close()
 
 #subset columns of interest and rename columns
 rctDf=rctDf[['id','prediction']]
-rctDf.rename(columns={ 0: 'PMID', 1: 'RCT Prediction'})
+rctDf.rename(columns={ 0: 'PMID', 1: 'RCT Prediction'}, inplace=True)
 print(rctDf)
 
 #combine old taggers and predictions from database
 rct_frames=[rctTags, rctDf]
 rctAll=pd.concat(rct_frames)
+print(rctAll)
 
 #read starting PubMed IDs from search
 startIds=pd.read_csv('OCR_RCT_START_IDS.txt', header=None)
