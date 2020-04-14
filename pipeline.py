@@ -30,7 +30,7 @@ DB.close()
 
 #subset columns of interest and rename columns
 rctDf=rctDf[['id','prediction']]
-rctDf.rename(columns={ 0: 'PMID', 1: 'RCT Prediction'}, inplace=True)
+rctDf.rename(columns={ "id": 'PMID', "prediction": 'RCT Prediction'}, inplace=True)
 print(rctDf)
 
 #combine old taggers and predictions from database
