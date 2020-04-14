@@ -61,4 +61,8 @@ print(absRet)
 
 
 
-#print results
+#print predictions for abstracts retrieved
+
+#print predictions for full text
+
+#calculate works savings from starting IDs to full text screened
