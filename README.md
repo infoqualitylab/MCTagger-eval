@@ -7,6 +7,6 @@ The purpose of this pipeline is to create a more user-friendly approach to extra
 3. pipeline.R : R code which extracts tagger predictions from established SQL database/aggregated database.
 4. pipeline.py: python code which has similar purpose as R pipeline, but has better data visualization options
 
-##Issues:
+## Issues:
 1. Not getting predictions for before-1987 PMIDs.
 2. Access to multiple tables from the database. 
