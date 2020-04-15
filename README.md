@@ -6,3 +6,7 @@ The purpose of this pipeline is to create a more user-friendly approach to extra
 2. OCR_RCT_RET_ABS_IDS.txt : Retrieved PubMed IDs from retrieved abstracts for review 
 3. pipeline.R : R code which extracts tagger predictions from established SQL database/aggregated database.
 4. pipeline.py: python code which has similar purpose as R pipeline, but has better data visualization options
+
+##Issues:
+1. Not getting predictions for before-1987 PMIDs.
+2. Access to multiple tables from the database. 
