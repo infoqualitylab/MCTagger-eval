@@ -9,4 +9,4 @@ The purpose of this pipeline is to create a more user-friendly approach to extra
 
 ## Issues:
 1. Not getting predictions for before-1987 PMIDs (or after 2016 PMIDs?)
-2. Access to multiple tables from the database. 
+2. Need access to multiple tables from the database. 
