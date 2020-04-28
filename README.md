@@ -8,5 +8,5 @@ The purpose of this pipeline is to create a more user-friendly approach to extra
 4. pipeline.py: python code which has similar purpose as R pipeline, but has better data visualization options
 
 ## Issues:
-1. Not getting predictions for before-1987 PMIDs.
+1. Not getting predictions for before-1987 PMIDs (or after 2016 PMIDs?)
 2. Access to multiple tables from the database. 
