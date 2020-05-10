@@ -50,7 +50,6 @@ def abstractCalc():
         worksavings_abstract.append(workSavings)
         NumDiscarded = 0
         # print("Work Savings:", workSavings, "\n")
-    # return abs_worksavings
     return n, worksavings_abstract
 
 
@@ -76,7 +75,6 @@ def fullTextCalc():
         for prediction in fullTextList:
             if ((eval(prediction.strip()))) >= threshold:
                 NumRetained = NumRetained + 1
-        # ft_recall = NumRetained / numFullText
         # print("Threshold:", threshold)
         # print("Number retained:", NumRetained)
         Recall = NumRetained / numFullText
@@ -91,7 +89,6 @@ def fullTextCalc():
     ##For work savings, input files are abstract screened and full-text screened, and calculate the percent
     #of predictions below the threshold:
 
-# def fullTextCalc2():
     o2 = [0, .0001, .001, .01, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1]
     worksavings_fulltext = []
     NumDiscarded = 0
@@ -138,13 +135,6 @@ def includedCalc():
         recall_included.append(Recall)
         incNumRetained = 0
         # print("Percent recall:", Recall, "\n")
-    # return threshold, numIncluded, incNumRetained
     return p, recall_included
-# def outputResults():
-#     # threshold, numIncluded, incNumRetained = includedCalc()
-#     incRecall = incNumRetained / numIncluded
-#     #write out list for included recall, full-text recall, full-text work savings, and abstract work savings
-#     print(incRecall)
-# #Would it be useful to be able to input any number for n and have work savings and recall returned?
 
 if __name__ == '__main__': main()
