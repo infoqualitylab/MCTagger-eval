@@ -21,11 +21,11 @@ def main():
     ax1.plot([.01, .01], [0, 1],
              linestyle = "--", color = "green", label = "Recommended prediction value for filtering")
     ax1.text(.01, .4, ".01", rotation = 45)
-    ax2.plot([eval(ft_full_recall), eval(ft_full_recall)],
-             [0, 1], linestyle = "--", color = "magenta", label = "Abstract screening - Max filtering value with 100% recall")
-    ax2.text(eval(ft_full_recall), .4, eval(ft_full_recall), rotation = 45)
+    # ax2.plot([eval(ft_full_recall), eval(ft_full_recall)],
+    #          [0, 1], linestyle = "--", color = "magenta", label = "Abstract screening - Max filtering value with 100% recall")
+    # ax2.text(eval(ft_full_recall), .4, eval(ft_full_recall), rotation = 45)
     ax2.plot([eval(inc_full_recall), eval(inc_full_recall)],
-               [0, 1], linestyle = "--", color = "red", label = "Full-Text screening - Max filtering value with 100% recall")
+               [0, 1], linestyle = "--", color = "red", label = "Max filtering value with 100% recall of included articles")
     ax2.text(eval(inc_full_recall), .3, eval(inc_full_recall), rotation = 45)
     plt.xticks(labels=("0", "\n.0001", "\n\n.001", "\n\n\n.01", ".1", ".2", ".3", ".4", ".5", ".6", ".7", ".8", ".9", "1"),
             ticks=(0, .0001, .001, .01, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1))
@@ -35,16 +35,17 @@ def main():
                ticks = (0, .1, .2, .3, .4,.5,.6,.7,.8, .9, 1))
     plt.xticks(rotation=45)
     plt.xlabel('Prediction Value Used for Filtering')
-    ax1.set_xlabel('Prediction Value Used for Filtering')
+    ax1.set_xlabel('Prediction Value Used for Filtering\n\n\n')
     plt.tight_layout(pad = 3) # Adds space around and between graphs
     # ax1.set_ylabel('Percentage of Articles Filtered Out')
     # ax2.set_ylabel('Percentage of Articles Retained')
     fig.suptitle('PCSK9 RCT Filtering', fontdict={'fontsize': 30})
     ax1.legend(loc = 'lower right')
-    # ax1.legend(loc = 'best') # Try this if the above legend location isn't ideal
+    # ax1.legend(loc = 'best') # Try this if the above legend location isn't ideal;
+    # or try putting it in the same location as ax2 below
     ax2.legend(loc='best', bbox_to_anchor=(1, -.15))
-    plt.show()
-    # plt.savefig('Filtering Graphs - PCSK9 - RCT.png', dpi = 500)
+    # plt.show()
+    plt.savefig('Filtering Graphs - PCSK9 - RCT2.png', dpi = 500)
     #Always comment out either the "show" or the "save" part because Python doesn't seem to like both at the same time
 
 
