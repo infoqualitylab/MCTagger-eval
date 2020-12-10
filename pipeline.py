@@ -15,7 +15,7 @@ pathDB='/Users/brandismith/Documents/Tagger Data/all_predictions_1987_2019'
 #connect to database
 DB = sqlite3.connect(pathDB)
 
-#path to old taggers
+#path to old taggers (a combined csv file containing newer data: https://uofi.app.box.com/file/628194358383)
 pathOld='/Users/brandismith/Documents/Tagger Data/all.csv'
 
 #retrieve old taggers
