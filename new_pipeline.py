@@ -9,9 +9,9 @@ prediction_data = csv.reader(df)
 #READ PMIDS FROM EACH STAGE OF REVIEW
 #THREE INPUT FILES GO HERE
 input_cols_list = ['PMID']
-abs_screened=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Asthma-COPD/Abstract Screened - PMIDs.csv', 'r', usecols=input_cols_list)
-ft_screened=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Asthma-COPD/Full-Text - PMIDs.csv', 'r', usecols=input_cols_list)
-included=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Asthma-COPD/Included - PMIDs.csv', 'r', usecols=input_cols_list)
+abs_screened=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Long-Acting Insulins/All Records Screened - PMIDs - Long Acting Insulins (1086).csv', 'r', usecols=input_cols_list)
+ft_screened=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Long-Acting Insulins/Full-Text Assessed - PMIDs - Long Acting Insulins.csv', 'r', usecols=input_cols_list)
+included=pd.read_csv('/Users/randiproescholdt/Documents/Files from HP/RA/NIH/DERP Reports/Long-Acting Insulins/Included - PMIDS - Long Acting Insulins.csv', 'r', usecols=input_cols_list)
 
 number = 0
 pmid_list = []
@@ -19,7 +19,7 @@ prediction_list = []
 
 #RETRIEVE PREDICTIONS FOR ABSTRACT SCREENED ITEMS (ALL ITEMS IN REVIEW THAT HAVE PMIDS)
 #RENAME THREE OUTPUT FILES APPROPRIATELY
-with open('abstract_screened_predictions_RCT_Asthma-COPD.csv', 'w') as csvfile:
+with open('abstract_screened_predictions_RCT_Long-Acting Insulins.csv', 'w') as csvfile:
     fieldnames = ['PMID', 'Prediction']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -36,18 +36,28 @@ with open('abstract_screened_predictions_RCT_Asthma-COPD.csv', 'w') as csvfile:
 
 #LIST ITEMS NOT FOUND IN THE PREDICTION FILE
 missing_row_list =[]
+
 for row in abs_screened['PMID']:
     if row not in pmid_list:
         missing_row_list.append(row)
 
 print("Abstract screened items with no prediction found:", missing_row_list)
 
+with open('abstract_screened_RCT_nopredictionfound_Long-Acting Insulins.csv', 'w') as csvfile:
+    fieldnames = ['PMID']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    for row in abs_screened['PMID']:
+        if row not in pmid_list:
+            writer.writerow({'PMID': row})
+
 
 #RETRIEVE PREDICTIONS FOR FULL-TEXT SCREENED ITEMS (FROM THE LIST OF ABSTRACT SCREENED PREDICTIONS)
 number = 0
 # ft_missing_list = []
 
-with open('full_text_screened_predictions_RCT_Asthma-COPD.csv', 'w') as csvfile:
+with open('full_text_screened_predictions_RCT_Long-Acting Insulins.csv', 'w') as csvfile:
     fieldnames = ['PMID', 'Prediction']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -66,7 +76,7 @@ with open('full_text_screened_predictions_RCT_Asthma-COPD.csv', 'w') as csvfile:
 number = 0
 # inc_missing_list = []
 
-with open('included_predictions_RCT_Asthma-COPD.csv', 'w') as csvfile:
+with open('included_predictions_RCT_Long-Acting Insulins.csv', 'w') as csvfile:
     fieldnames = ['PMID', 'Prediction']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
