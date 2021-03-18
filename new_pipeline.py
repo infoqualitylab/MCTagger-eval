@@ -18,7 +18,7 @@ pmid_list = []
 prediction_list = []
 
 #RETRIEVE PREDICTIONS FOR ABSTRACT SCREENED ITEMS (ALL ITEMS IN REVIEW THAT HAVE PMIDS)
-#RENAME THREE OUTPUT FILES APPROPRIATELY
+#RENAME FOUR OUTPUT FILES APPROPRIATELY
 with open('abstract_screened_predictions_RCT_Long-Acting Insulins.csv', 'w') as csvfile:
     fieldnames = ['PMID', 'Prediction']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -35,13 +35,13 @@ with open('abstract_screened_predictions_RCT_Long-Acting Insulins.csv', 'w') as 
 
 
 #LIST ITEMS NOT FOUND IN THE PREDICTION FILE
-missing_row_list =[]
-
-for row in abs_screened['PMID']:
-    if row not in pmid_list:
-        missing_row_list.append(row)
-
-print("Abstract screened items with no prediction found:", missing_row_list)
+# missing_row_list =[]
+#
+# for row in abs_screened['PMID']:
+#     if row not in pmid_list:
+#         missing_row_list.append(row)
+#
+# print("Abstract screened items with no prediction found:", missing_row_list)
 
 with open('abstract_screened_RCT_nopredictionfound_Long-Acting Insulins.csv', 'w') as csvfile:
     fieldnames = ['PMID']
