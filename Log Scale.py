@@ -6,16 +6,16 @@ from matplotlib import pyplot as plt
 plt.style.use('fivethirtyeight')
 
 #Get x's and y's for abstract screened:
-abstractScreened = open("Abstract Screened Predictions (148) - PCSK9.txt", 'r')
+abstractScreened = open("/Users/randiproescholdt/PycharmProjects/pythonProject1/abstract_screened_pred_only_PCSK9.txt", 'r')
 abstractScreenedList = abstractScreened.readlines()
 abstractScreened.close()
-
-abstractScreenedList.sort(reverse = True)
-#Predictions need to be sorted; otherwise, the lines will not have visible order
 
 abs_prediction_list = [] #This will be our y
 for prediction in abstractScreenedList:
     abs_prediction_list.append(eval(prediction.strip()))
+
+abs_prediction_list.sort(reverse = True)
+#Predictions need to be sorted; otherwise, the lines will not have visible order
 
 num_abstract_screened = 0
 num_abstract_list = [] #This will be our x
@@ -27,15 +27,15 @@ print("Number of articles abstract screened:", num_abstract_screened, "\n") #Jus
 # print(num_abstract_list)
 
 #Get x's and y's for Full-Text Screened
-full_text = open('Full-Text Assessed - Predictions only - PCSK9.txt', 'r')
+full_text = open('/Users/randiproescholdt/PycharmProjects/pythonProject1/ft_screened_pred_only_PCSK9.txt', 'r')
 full_text_list = full_text.readlines()
 full_text.close()
-
-full_text_list.sort(reverse = True)
 
 full_text_prediction_list = []
 for prediction in full_text_list:
     full_text_prediction_list.append(eval(prediction.strip()))
+
+full_text_prediction_list.sort(reverse = True)
 
 num_ft_screened = 0
 num_ft_list = []
@@ -48,15 +48,15 @@ print("Number of articles full-text screened:", num_ft_screened, "\n")
 
 
 #Get x's and y's for included articles
-included = open('Included RCT Scores(19).txt', 'r')
+included = open('/Users/randiproescholdt/PycharmProjects/pythonProject1/included_pred_only_PCSK9.txt', 'r')
 included_list = included.readlines()
 included.close()
-
-included_list.sort(reverse = True)
 
 included_prediction_list = []
 for prediction in included_list:
     included_prediction_list.append(eval(prediction.strip()))
+
+included_prediction_list.sort(reverse = True)
 
 num_included = 0
 num_included_list = []
@@ -91,5 +91,5 @@ plt.legend(loc = 'best')
 
 plt.tight_layout(pad = 3)
 
-plt.show()
-# plt.savefig('Log Scale - PCSK9 - RCT.png', dpi = 300)
+# plt.show()
+plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/LogScale_RCT_PCSK9.png', dpi = 300)
