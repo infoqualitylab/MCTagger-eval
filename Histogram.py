@@ -7,11 +7,13 @@ plt.style.use('fivethirtyeight')
 
 input_cols_list = ['Prediction']
 
-abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+
+##THREE INPUT FILES HERE
+abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/abstract_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
-full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/full_text_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
-included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/included_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
 
 abs_prediction_list = []
@@ -34,7 +36,8 @@ b1 = plt.hist(abs_prediction_list, bins = bins, edgecolor = 'black', hatch = '/'
 b2 = plt.hist(full_text_prediction_list, bins = bins, edgecolor = 'black', label = "Full-Text Screened")
 b3 = plt.hist(included_prediction_list, bins = bins, color = "yellow", hatch = '.', edgecolor = 'black', label = "Included in Review")
 
-plt.title('PCSK9 RCT Prediction Frequencies')
+##CHANGE GRAPH TITLE HERE
+plt.title('Asthma-COPD RCT Prediction Frequencies')
 plt.xlabel('RCT Prediction')
 plt.ylabel('Frequency')
 
@@ -47,5 +50,6 @@ plt.axvline(.01, color="green", label = ".01 (Recommended prediction value for f
 
 plt.legend(loc = "best")
 
+##RENAME OUTPUT FILE HERE (OR CHOOSE TO SHOW AND NOT SAVE THE GRAPH)
 plt.show()
-# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/Histogram_RCT_PCSK9.png', dpi = 300)
+# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/Histogram_RCT_Asthma-COPD.png', dpi = 300)
