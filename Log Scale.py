@@ -6,12 +6,11 @@ from matplotlib import pyplot as plt
 plt.style.use('fivethirtyeight')
 
 #Get x's and y's for abstract screened:
-abstractScreened = open("/Users/randiproescholdt/PycharmProjects/pythonProject1/abstract_screened_pred_only_PCSK9.txt", 'r')
-abstractScreenedList = abstractScreened.readlines()
-abstractScreened.close()
+abs_screened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                        dtype=str)
 
 abs_prediction_list = [] #This will be our y
-for prediction in abstractScreenedList:
+for prediction in abs_screened['Prediction']:
     abs_prediction_list.append(eval(prediction.strip()))
 
 abs_prediction_list.sort(reverse = True)
@@ -20,19 +19,18 @@ abs_prediction_list.sort(reverse = True)
 num_abstract_screened = 0
 num_abstract_list = [] #This will be our x
 
-for prediction in abstractScreenedList:
+for prediction in abs_screened['Prediction']:
     num_abstract_screened = num_abstract_screened + 1
     num_abstract_list.append(num_abstract_screened)
 print("Number of articles abstract screened:", num_abstract_screened, "\n") #Just checking that the number looks right
 # print(num_abstract_list)
 
 #Get x's and y's for Full-Text Screened
-full_text = open('/Users/randiproescholdt/PycharmProjects/pythonProject1/ft_screened_pred_only_PCSK9.txt', 'r')
-full_text_list = full_text.readlines()
-full_text.close()
+full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
 
 full_text_prediction_list = []
-for prediction in full_text_list:
+for prediction in full_text['Prediction']:
     full_text_prediction_list.append(eval(prediction.strip()))
 
 full_text_prediction_list.sort(reverse = True)
@@ -40,7 +38,7 @@ full_text_prediction_list.sort(reverse = True)
 num_ft_screened = 0
 num_ft_list = []
 
-for prediction in full_text_prediction_list:
+for prediction in full_text['Prediction']:
     num_ft_screened = num_ft_screened + 1
     num_ft_list.append(num_ft_screened)
 print("Number of articles full-text screened:", num_ft_screened, "\n")
@@ -48,12 +46,11 @@ print("Number of articles full-text screened:", num_ft_screened, "\n")
 
 
 #Get x's and y's for included articles
-included = open('/Users/randiproescholdt/PycharmProjects/pythonProject1/included_pred_only_PCSK9.txt', 'r')
-included_list = included.readlines()
-included.close()
+included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
 
 included_prediction_list = []
-for prediction in included_list:
+for prediction in included['Prediction']:
     included_prediction_list.append(eval(prediction.strip()))
 
 included_prediction_list.sort(reverse = True)
@@ -61,7 +58,7 @@ included_prediction_list.sort(reverse = True)
 num_included = 0
 num_included_list = []
 
-for prediction in included_prediction_list:
+for prediction in included['Prediction']:
     num_included = num_included + 1
     num_included_list.append(num_included)
 print("Number of articles included in the review:", num_included, "\n")
@@ -76,7 +73,7 @@ plt.plot(num_included_list, included_prediction_list, label = "Included")
 
 #And a benchmark line
 plt.plot([0, num_abstract_screened], [.01, .01], linewidth = 2, linestyle = "--",
-         label = ".01 (Recommended prediction value for filtering")
+         label = ".01 (Recommended prediction value for filtering)")
 
 # plt.xlim(num_abstract_screened, 0)
 # plt.ylim(1, .00001)
@@ -91,5 +88,5 @@ plt.legend(loc = 'best')
 
 plt.tight_layout(pad = 3)
 
-# plt.show()
-plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/LogScale_RCT_PCSK9.png', dpi = 300)
+plt.show()
+# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/LogScale_RCT_PCSK9.png', dpi = 300)
