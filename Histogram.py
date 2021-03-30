@@ -5,28 +5,25 @@ from matplotlib import pyplot as plt
 
 plt.style.use('fivethirtyeight')
 
-abstractScreened = open('Abstract Screened Predictions (148) - PCSK9.txt', 'r')
-abstractScreenedList = abstractScreened.readlines()
-abstractScreened.close()
+input_cols_list = ['Prediction']
+
+abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
+full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
+included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
 
 abs_prediction_list = []
-for prediction in abstractScreenedList:
+for prediction in abstractScreened['Prediction']:
     abs_prediction_list.append(eval(prediction.strip()))
 
-full_text = open('Full-Text Assessed - Predictions only - PCSK9.txt', 'r')
-full_text_list = full_text.readlines()
-full_text.close()
-
 full_text_prediction_list = []
-for prediction in full_text_list:
+for prediction in full_text['Prediction']:
     full_text_prediction_list.append(eval(prediction.strip()))
 
-included = open('Included RCT Scores(19).txt', 'r')
-included_list = included.readlines()
-included.close()
-
 included_prediction_list = []
-for prediction in included_list:
+for prediction in included['Prediction']:
     included_prediction_list.append(eval(prediction.strip()))
 
 bins = [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1]
@@ -51,4 +48,4 @@ plt.axvline(.01, color="green", label = ".01 (Recommended prediction value for f
 plt.legend(loc = "best")
 
 plt.show()
-# plt.savefig('Histogram - PCSK9 - RCT.png', dpi = 300)
+# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/Histogram_RCT_PCSK9.png', dpi = 300)
