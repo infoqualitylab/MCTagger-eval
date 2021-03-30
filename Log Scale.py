@@ -6,7 +6,8 @@ from matplotlib import pyplot as plt
 plt.style.use('fivethirtyeight')
 
 #Get x's and y's for abstract screened:
-abs_screened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+##FIRST INPUT FILE HERE
+abs_screened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/abstract_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                         dtype=str)
 
 abs_prediction_list = [] #This will be our y
@@ -25,8 +26,9 @@ for prediction in abs_screened['Prediction']:
 print("Number of articles abstract screened:", num_abstract_screened, "\n") #Just checking that the number looks right
 # print(num_abstract_list)
 
-#Get x's and y's for Full-Text Screened
-full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+#Get x's and y's for Full-Text Screened:
+##SECOND INPUT FILE HERE
+full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/full_text_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
 
 full_text_prediction_list = []
@@ -45,8 +47,9 @@ print("Number of articles full-text screened:", num_ft_screened, "\n")
 # print(num_ft_list)
 
 
-#Get x's and y's for included articles
-included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+#Get x's and y's for included articles:
+#THIRD INPUT FILE HERE
+included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/included_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
 
 included_prediction_list = []
@@ -81,12 +84,15 @@ plt.plot([0, num_abstract_screened], [.01, .01], linewidth = 2, linestyle = "--"
 plt.yscale('log')
 plt.yticks(labels = (".00001", ".0001", ".001", ".01", ".1", "1"), ticks = (.00001, .0001, .001, .01, .1, 1))
 # plt.title("Cumulative Frequency of Max Predictions for Long Acting Insulins Report:\nCase Control, RCTs, and Cohort Studies")
-plt.title("Cumulative Frequency of RCT Predictions for PCSK9 Report")
+
+##CHANGE GRAPH TITLE (AND AXIS TITLES IF NEED BE) HERE
+plt.title("Cumulative Frequency of RCT Predictions for Asthma-COPD Report")
 plt.xlabel("Number of Predictions above Prediction Value")
 plt.ylabel("RCT Predictions")
 plt.legend(loc = 'best')
 
 plt.tight_layout(pad = 3)
 
+##RENAME OUTPUT FILE HERE (OR CHOOSE TO SHOW AND NOT SAVE THE GRAPH)
 plt.show()
-# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/LogScale_RCT_PCSK9.png', dpi = 300)
+# plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/LogScale_RCT_Asthma-COPD.png', dpi = 300)
