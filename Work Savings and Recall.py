@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+#NOTE:
+#Go to def abstractCalc, def fullTextCalc, and def includedCalc to specify paths for the three input files
+#Go to def main to change graph title and name of output file
+
 def main():
     n, worksavings_abstract = abstractCalc()
     o, recall_fulltext, o2, worksavings_fulltext, ft_full_recall, ft_ninetyfive_recall = fullTextCalc()
@@ -39,19 +43,23 @@ def main():
     plt.tight_layout(pad = 3) # Adds space around and between graphs
     # ax1.set_ylabel('Percentage of Articles Filtered Out')
     # ax2.set_ylabel('Percentage of Articles Retained')
-    fig.suptitle('PCSK9 RCT Filtering', fontdict={'fontsize': 30})
+
+    ##CHANGE GRAPH TITLE HERE
+    fig.suptitle('Asthma-COPD RCT Filtering', fontdict={'fontsize': 30})
     ax1.legend(loc = 'lower right')
     # ax1.legend(loc = 'best') # Try this if the above legend location isn't ideal;
     # or try putting it in the same location as ax2 below
     ax2.legend(loc='best', bbox_to_anchor=(1, -.15))
-    plt.show()
-    # plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/FilteringGraphs_RCT_PCSK9.png', dpi = 500)
+
+    ##RENAME OUTPUT FILE HERE (OR CHOOSE TO SHOW AND NOT SAVE THE GRAPH)
+    # plt.show()
+    plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/FilteringGraphs_RCT_Asthma-COPD.png', dpi = 500)
     #Always comment out either the "show" or the "save" part because Python doesn't seem to like both at the same time
 
 
 def abstractCalc():
     # Input abstract screened predictions here:
-    abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+    abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/abstract_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
     numAbstractScreened = 0
 
@@ -82,7 +90,7 @@ def abstractCalc():
 
 def fullTextCalc():
     #Input Full-Text screened predictions here:
-    full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+    full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/full_text_screened_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
     fullTextList = []
 
@@ -163,7 +171,7 @@ def fullTextCalc():
 
 def includedCalc():
     #Input included article predictions here:
-    included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+    included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/Asthma-COPD/included_predictions_RCT_Asthma-COPD.csv', 'r', delimiter=",",
                          dtype=str)
 
     includedList = []
