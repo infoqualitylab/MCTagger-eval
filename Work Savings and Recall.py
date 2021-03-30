@@ -44,21 +44,19 @@ def main():
     # ax1.legend(loc = 'best') # Try this if the above legend location isn't ideal;
     # or try putting it in the same location as ax2 below
     ax2.legend(loc='best', bbox_to_anchor=(1, -.15))
-    # plt.show()
-    plt.savefig('Filtering Graphs - PCSK9 - RCT2.png', dpi = 500)
+    plt.show()
+    # plt.savefig('/Users/randiproescholdt/PycharmProjects/pythonProject1/FilteringGraphs_RCT_PCSK9.png', dpi = 500)
     #Always comment out either the "show" or the "save" part because Python doesn't seem to like both at the same time
 
 
 def abstractCalc():
     # Input abstract screened predictions here:
-    abstractScreened = open('Abstract Screened Predictions (148) - PCSK9.txt', 'r')
-    abstractScreenedList = abstractScreened.readlines()
-    abstractScreened.close()
-
+    abstractScreened = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/abstract_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
     numAbstractScreened = 0
 
 # Counter to figure out the total number of predictions; will use for calculations in next step
-    for prediction in abstractScreenedList:
+    for prediction in abstractScreened['Prediction']:
         numAbstractScreened = numAbstractScreened + 1
     print("Number of articles abstract screened:", numAbstractScreened, "\n")
 
@@ -70,7 +68,7 @@ def abstractCalc():
     worksavings_abstract = []
     numDiscarded = 0
     for threshold in n: #loop through thresholds
-        for prediction in abstractScreenedList: #loop through list from input file
+        for prediction in abstractScreened['Prediction']: #loop through list from input file
             if ((eval(prediction.strip()))) <= threshold:
                 numDiscarded = numDiscarded + 1         # counting up the number that are below the threshold
         workSavings = numDiscarded / numAbstractScreened # Number below threshold divided total
@@ -84,13 +82,11 @@ def abstractCalc():
 
 def fullTextCalc():
     #Input Full-Text screened predictions here:
-    fullText = open('Full-Text Assessed - Predictions only - PCSK9.txt', 'r')
-    fullTextList_raw = fullText.readlines()
-    fullText.close()
-
+    full_text = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/full_text_screened_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
     fullTextList = []
 
-    for prediction in fullTextList_raw:
+    for prediction in full_text['Prediction']:
         fullTextList.append(prediction.strip())
 
     fullTextList.sort(reverse = True) #sorting in descending order so that 95% recall can be determined by index position
@@ -167,13 +163,12 @@ def fullTextCalc():
 
 def includedCalc():
     #Input included article predictions here:
-    included = open('Included RCT Scores(19).txt', 'r')
-    includedList_raw = included.readlines()
-    included.close()
+    included = pd.read_csv('/Users/randiproescholdt/PycharmProjects/pythonProject1/PCSK9/included_predictions_RCT_PCSK9.csv', 'r', delimiter=",",
+                         dtype=str)
 
     includedList = []
 
-    for prediction in includedList_raw:
+    for prediction in included['Prediction']:
         includedList.append(prediction.strip())
 
     includedList.sort(reverse = True)
