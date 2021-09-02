@@ -1067,22 +1067,26 @@ for each_derp in derps_included_designs:
     included_desings_abbr = []
     for sd in each_derp.split(';'):
         abbr = ''
-        if sd == 'Randomized Controlled Trial':
-            abbr = 'RCT'
-        elif sd == 'Systematic Review':
-            abbr = 'SR'
-        elif sd == 'Case-Control Studies':
-            abbr = 'CCS'
-        elif sd == "Cohort Studies":
-            abbr = 'CS'
-        elif sd == 'Cross-Sectional Studies':
-            abbr = 'CSS'
-        elif sd == 'Prospective Studies':
-            abbr = 'PS'
-        elif sd == 'Retrospective Studies':
-            abbr = 'RS'
-        elif sd == 'Meta-analysis':
-            abbr = 'MA'
+        if sd == 'Randomized Controlled Trial':                               
+            abbr = 'RCT'                                                      
+        elif sd == 'Systematic Review':                                       
+            abbr = 'SR'                                                       
+        elif sd == 'Case-Control Studies':                                    
+            abbr = 'CCS'                                                      
+        elif sd == "Cohort Studies":                                          
+            abbr = 'CS'                                                       
+        # elif sd == 'Cross-Sectional Studies':                               
+        #     abbr = 'CSS'                                                    
+        elif sd == 'Prospective Studies':                                     
+            abbr = 'PS'                                                       
+        elif sd == 'Retrospective Studies':                                   
+            abbr = 'RS'                                                       
+        elif sd == 'Meta-analysis':                                           
+            abbr = 'MA'                                                       
+        elif sd == 'Clinical Study':                                          
+            abbr = 'CLS'                                                      
+        elif sd == 'Practice Guideline':                                      
+            abbr = 'PG'                                                       
 
         included_desings_abbr.append(abbr)
     included_desings_abbr = ', '.join(included_desings_abbr)
@@ -1102,14 +1106,15 @@ ax.set_yticklabels(labels=new_y_lbl, fontsize=12)
 
 # Add text box
 props = dict(boxstyle='Square', facecolor='wheat', alpha=0)
-textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
-                                                  'SR = Systematic Reviews',
-                                                  'MA = Meta-analysis',
-                                                  'CCS = Case-Control Studies',
-                                                  'CS = Cohort Studies',
-                                                  'CSS = Cross-Sectional Studies',
-                                                  'PS = Prospective Studies',
-                                                  'RS = Retrospective Studies')
+textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
+                                                  'SR = Systematic Reviews',    
+                                                  'MA = Meta-analysis',         
+                                                  'CCS = Case-Control Studies', 
+                                                  'CS = Cohort Studies',        
+                                                  'PS = Prospective Studies',   
+                                                  'RS = Retrospective Studies', 
+                                                  'CLS = Clinical Study',       
+                                                  'PG = Practice Guideline')    
 
 ax.text(0.75, 1, textstr, transform=ax.transAxes, fontsize=12,
         verticalalignment='bottom', bbox=props)
@@ -1243,22 +1248,26 @@ for each_derp in derps_included_designs:
     included_desings_abbr = []
     for sd in each_derp.split(';'):
         abbr = ''
-        if sd == 'Randomized Controlled Trial':
-            abbr = 'RCT'
-        elif sd == 'Systematic Review':
-            abbr = 'SR'
-        elif sd == 'Case-Control Studies':
-            abbr = 'CCS'
-        elif sd == "Cohort Studies":
-            abbr = 'CS'
-        elif sd == 'Cross-Sectional Studies':
-            abbr = 'CSS'
-        elif sd == 'Prospective Studies':
-            abbr = 'PS'
-        elif sd == 'Retrospective Studies':
-            abbr = 'RS'
-        elif sd == 'Meta-analysis':
-            abbr = 'MA'
+        if sd == 'Randomized Controlled Trial':                               
+            abbr = 'RCT'                                                      
+        elif sd == 'Systematic Review':                                       
+            abbr = 'SR'                                                       
+        elif sd == 'Case-Control Studies':                                    
+            abbr = 'CCS'                                                      
+        elif sd == "Cohort Studies":                                          
+            abbr = 'CS'                                                       
+        # elif sd == 'Cross-Sectional Studies':                               
+        #     abbr = 'CSS'                                                    
+        elif sd == 'Prospective Studies':                                     
+            abbr = 'PS'                                                       
+        elif sd == 'Retrospective Studies':                                   
+            abbr = 'RS'                                                       
+        elif sd == 'Meta-analysis':                                           
+            abbr = 'MA'                                                       
+        elif sd == 'Clinical Study':                                          
+            abbr = 'CLS'                                                      
+        elif sd == 'Practice Guideline':                                      
+            abbr = 'PG'                                                       
 
         included_desings_abbr.append(abbr)
     included_desings_abbr = ', '.join(included_desings_abbr)
@@ -1277,14 +1286,15 @@ ax.set_yticklabels(labels=new_y_lbl, fontsize=12)
 
 # Add text box
 props = dict(boxstyle='Square', facecolor='wheat', alpha=0)
-textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
-                                                  'SR = Systematic Reviews',
-                                                  'MA = Meta-analysis',
-                                                  'CCS = Case-Control Studies',
-                                                  'CS = Cohort Studies',
-                                                  'CSS = Cross-Sectional Studies',
-                                                  'PS = Prospective Studies',
-                                                  'RS = Retrospective Studies')
+textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
+                                                  'SR = Systematic Reviews',    
+                                                  'MA = Meta-analysis',         
+                                                  'CCS = Case-Control Studies', 
+                                                  'CS = Cohort Studies',        
+                                                  'PS = Prospective Studies',   
+                                                  'RS = Retrospective Studies', 
+                                                  'CLS = Clinical Study',       
+                                                  'PG = Practice Guideline')    
 
 ax.text(0.75, 1, textstr, transform=ax.transAxes, fontsize=12,
         verticalalignment='bottom', bbox=props)
@@ -1408,22 +1418,26 @@ for each_derp in derps_included_designs:
     included_desings_abbr = []
     for sd in each_derp.split(';'):
         abbr = ''
-        if sd == 'Randomized Controlled Trial':
-            abbr = 'RCT'
-        elif sd == 'Systematic Review':
-            abbr = 'SR'
-        elif sd == 'Case-Control Studies':
-            abbr = 'CCS'
-        elif sd == "Cohort Studies":
-            abbr = 'CS'
-        elif sd == 'Cross-Sectional Studies':
-            abbr = 'CSS'
-        elif sd == 'Prospective Studies':
-            abbr = 'PS'
-        elif sd == 'Retrospective Studies':
-            abbr = 'RS'
-        elif sd == 'Meta-analysis':
-            abbr = 'MA'
+        if sd == 'Randomized Controlled Trial':                               
+            abbr = 'RCT'                                                      
+        elif sd == 'Systematic Review':                                       
+            abbr = 'SR'                                                       
+        elif sd == 'Case-Control Studies':                                    
+            abbr = 'CCS'                                                      
+        elif sd == "Cohort Studies":                                          
+            abbr = 'CS'                                                       
+        # elif sd == 'Cross-Sectional Studies':                               
+        #     abbr = 'CSS'                                                    
+        elif sd == 'Prospective Studies':                                     
+            abbr = 'PS'                                                       
+        elif sd == 'Retrospective Studies':                                   
+            abbr = 'RS'                                                       
+        elif sd == 'Meta-analysis':                                           
+            abbr = 'MA'                                                       
+        elif sd == 'Clinical Study':                                          
+            abbr = 'CLS'                                                      
+        elif sd == 'Practice Guideline':                                      
+            abbr = 'PG'                                                       
 
         included_desings_abbr.append(abbr)
     included_desings_abbr = ', '.join(included_desings_abbr)
@@ -1443,14 +1457,15 @@ ax.set_yticklabels(labels=new_y_lbl, fontsize=12)
 
 # Add text box
 props = dict(boxstyle='Square', facecolor='wheat', alpha=0)
-textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
-                                                  'SR = Systematic Reviews',
-                                                  'MA = Meta-analysis',
-                                                  'CCS = Case-Control Studies',
-                                                  'CS = Cohort Studies',
-                                                  'CSS = Cross-Sectional Studies',
-                                                  'PS = Prospective Studies',
-                                                  'RS = Retrospective Studies')
+textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
+                                                  'SR = Systematic Reviews',    
+                                                  'MA = Meta-analysis',         
+                                                  'CCS = Case-Control Studies', 
+                                                  'CS = Cohort Studies',        
+                                                  'PS = Prospective Studies',   
+                                                  'RS = Retrospective Studies', 
+                                                  'CLS = Clinical Study',       
+                                                  'PG = Practice Guideline')    
 
 ax.text(0.75, 1, textstr, transform=ax.transAxes, fontsize=12,
         verticalalignment='bottom', bbox=props)
@@ -1586,22 +1601,26 @@ for each_derp in derps_included_designs:
     included_desings_abbr = []
     for sd in each_derp.split(';'):
         abbr = ''
-        if sd == 'Randomized Controlled Trial':
-            abbr = 'RCT'
-        elif sd == 'Systematic Review':
-            abbr = 'SR'
-        elif sd == 'Case-Control Studies':
-            abbr = 'CCS'
-        elif sd == "Cohort Studies":
-            abbr = 'CS'
-        elif sd == 'Cross-Sectional Studies':
-            abbr = 'CSS'
-        elif sd == 'Prospective Studies':
-            abbr = 'PS'
-        elif sd == 'Retrospective Studies':
-            abbr = 'RS'
-        elif sd == 'Meta-analysis':
-            abbr = 'MA'
+        if sd == 'Randomized Controlled Trial':                               
+            abbr = 'RCT'                                                      
+        elif sd == 'Systematic Review':                                       
+            abbr = 'SR'                                                       
+        elif sd == 'Case-Control Studies':                                    
+            abbr = 'CCS'                                                      
+        elif sd == "Cohort Studies":                                          
+            abbr = 'CS'                                                       
+        # elif sd == 'Cross-Sectional Studies':                               
+        #     abbr = 'CSS'                                                    
+        elif sd == 'Prospective Studies':                                     
+            abbr = 'PS'                                                       
+        elif sd == 'Retrospective Studies':                                   
+            abbr = 'RS'                                                       
+        elif sd == 'Meta-analysis':                                           
+            abbr = 'MA'                                                       
+        elif sd == 'Clinical Study':                                          
+            abbr = 'CLS'                                                      
+        elif sd == 'Practice Guideline':                                      
+            abbr = 'PG'                                                       
 
         included_desings_abbr.append(abbr)
     included_desings_abbr = ', '.join(included_desings_abbr)
@@ -1620,14 +1639,15 @@ ax.set_yticklabels(labels=new_y_lbl, fontsize=12)
 
 # Add text box
 props = dict(boxstyle='Square', facecolor='wheat', alpha=0)
-textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
-                                                  'SR = Systematic Reviews',
-                                                  'MA = Meta-analysis',
-                                                  'CCS = Case-Control Studies',
-                                                  'CS = Cohort Studies',
-                                                  'CSS = Cross-Sectional Studies',
-                                                  'PS = Prospective Studies',
-                                                  'RS = Retrospective Studies')
+textstr = '{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format('RCT = Randomized Controlled Trials',
+                                                  'SR = Systematic Reviews',    
+                                                  'MA = Meta-analysis',         
+                                                  'CCS = Case-Control Studies', 
+                                                  'CS = Cohort Studies',        
+                                                  'PS = Prospective Studies',   
+                                                  'RS = Retrospective Studies', 
+                                                  'CLS = Clinical Study',       
+                                                  'PG = Practice Guideline')    
 
 ax.text(0.75, 1, textstr, transform=ax.transAxes, fontsize=12,
         verticalalignment='bottom', bbox=props)
